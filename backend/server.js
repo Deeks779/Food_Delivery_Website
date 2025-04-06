@@ -31,5 +31,3 @@ app.listen(port, ()=>{
 
 
 
-
-// mongodb+srv://rujula:1234@cluster0.evrlsn1.mongodb.net/?
