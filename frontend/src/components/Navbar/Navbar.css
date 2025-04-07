@@ -27,6 +27,7 @@
     background: transparent;
     font-size: 16px;
     color: #49557e;
+    padding: 8px 10px;
     border: 1px solid tomato;
     border-radius: 50px;
     cursor:pointer;
