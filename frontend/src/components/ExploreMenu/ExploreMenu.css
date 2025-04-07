@@ -51,6 +51,6 @@
 }
 
 .explore-menu-list-item .active{
-    border: 4px solid tomato;
+    border: 4px solid rgb(71, 172, 255);
     padding: 2px;
 }
