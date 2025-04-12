@@ -1,7 +1,8 @@
-import React, { useContext,  useState } from 'react'
+import React, { useContext,  useEffect,  useState } from 'react'
 import './PlaceOrder.css'
 import { StoreContext } from '../../context/StoreContext'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const PlaceOrder = () => {
 
@@ -51,7 +52,7 @@ const PlaceOrder = () => {
         );
     
         if (response.data.success) {
-          window.location.href = "/orders";
+          window.location.href = "/myorders";
         } else {
           alert("Failed to place order. Try again.");
         }
@@ -60,6 +61,16 @@ const PlaceOrder = () => {
         alert("Something went wrong.");
       }
     }
+
+    const navigate= useNavigate();
+    useEffect(()=>{
+      if(!token){
+        navigate('/cart')
+      }
+      else if(getTotalCartAmount()===0){
+        navigate('/cart')
+      }
+    },[token])
   return (
 
     <form onSubmit={placeOrder} className= 'place-order'>
