@@ -36,6 +36,45 @@
     color: #454545;
 }
 
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+  }
+  
+  .popup-content {
+    background-color: white;
+    padding: 2rem 3rem;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+  }
+  
+  .popup-content h2 {
+    margin-bottom: 1rem;
+  }
+  
+  .popup-content button {
+    padding: 0.5rem 1.5rem;
+    background-color: rgb(71, 172, 255);
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .container.blurred {
+    filter: blur(2px);
+    pointer-events: none;
+  }
+
 @media (max-width:900px) {
     .my-orders-order{
         grid-template-columns: 1fr 2fr 1fr;

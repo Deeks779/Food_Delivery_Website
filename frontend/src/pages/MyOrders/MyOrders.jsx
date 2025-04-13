@@ -7,7 +7,8 @@ import { assets } from '../../assets/assets';
 const MyOrders=()=> {
 
     const{url,token}=useContext(StoreContext);
-    const [data,setData]= useState([])
+    const [data,setData]= useState([]);
+    const [showPopup, setShowPopup] = useState(false);
 
     const fetchOrdes = async() =>{
         const response = await axios.post(url+"/api/order/userorders",{},{headers:{token}});
@@ -20,11 +21,25 @@ const MyOrders=()=> {
         if(token){
             fetchOrdes();
         }
-    },[token])
+        if (sessionStorage.getItem("orderPlaced") === "true") {
+            setShowPopup(true);
+            sessionStorage.removeItem("orderPlaced");
+        }
+    },[token]);
 
   return (
     <div className='my-orders'>
       <h2>My orders</h2>
+
+      {showPopup && (
+        <div className="popup-overlay">
+          <div className="popup-content">
+            <h2>🎉 Order Successfully Placed!</h2>
+            <button onClick={() => setShowPopup(false)}>Close</button>
+          </div>
+        </div>
+      )}
+
       <div className='container'>
         {data.map((order,index)=>{
             return(

@@ -52,6 +52,7 @@ const PlaceOrder = () => {
         );
     
         if (response.data.success) {
+          sessionStorage.setItem("orderPlaced","true");
           window.location.href = "/myorders";
         } else {
           alert("Failed to place order. Try again.");
